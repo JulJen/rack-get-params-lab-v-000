@@ -25,7 +25,7 @@ class Application
         resp.write "We don't have that item"
       end
 
-    elsif req.path.math(/cart/)
+    elsif req.path.match(/cart/)
       if !@@cart.empty?
         @@cart.each { |item| resp.write "#{item}\n" }
       else# elsif @@cart.empty?
