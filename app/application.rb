@@ -16,6 +16,10 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
 
+    elsif req.path.math(/cart/)
+      if !@@cart.empty?
+        resp.write "#{item}\n"
+
     elsif req.path.match(/add/)
       add_items = req.params["item"]
       if @@item.include?(add_items)
@@ -23,7 +27,7 @@ class Application
         resp.write "added #{add_items}"
       else
         resp.write "We don't have that item"
-      end 
+      end
 
     else
       resp.write "Path Not Found"
