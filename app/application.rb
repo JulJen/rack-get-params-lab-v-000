@@ -15,7 +15,6 @@ class Application
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
-    end 
 
     elsif req.path.math(/cart/)
       if !@@cart.empty?
@@ -32,6 +31,7 @@ class Application
       else
         resp.write "We don't have that item"
       end
+    end 
 
     else
       resp.write "Path Not Found"
