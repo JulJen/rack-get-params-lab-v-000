@@ -20,9 +20,9 @@ class Application
       add_items = req.params["item"]
       if @@item.include?(add_items)
         @@cart << add_items
-        resp.write "#{add_items}"
-      elsif @@cart.empty?
-        resp.write "Your cart is empty"
+        resp.write "added #{add_items}"
+      else
+        resp.write "We don't have that item"
 
     else
       resp.write "Path Not Found"
